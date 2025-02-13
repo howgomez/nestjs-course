@@ -4,7 +4,7 @@ import { UpdatePaymentDto } from './dto/update-payment.dto';
 
 @Injectable()
 export class PaymentsService {
-  create(createPaymentDto: CreatePaymentDto) {
+  create( createPaymentDto: CreatePaymentDto) {
     return 'This action adds a new payment';
   }
 

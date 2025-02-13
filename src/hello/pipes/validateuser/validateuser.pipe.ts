@@ -9,7 +9,7 @@ import {
 @Injectable()
 export class ValidateuserPipe implements PipeTransform {
   transform(value: any, metadata: ArgumentMetadata) {
-    console.log('value', value);
+    console.log('value', value, metadata);
 
     const ageNumber = parseInt(value.age.toString(), 10);
 

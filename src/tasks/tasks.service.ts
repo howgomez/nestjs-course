@@ -3,10 +3,8 @@ import { UpdateTaskDto } from './dto/update-task.dto';
 import { CreateTaskDto } from './dto/create-task.dto';
 import { PrismaService } from 'src/prisma.service';
 
-
 @Injectable()
 export class TasksService {
-
   constructor(private prisma: PrismaService) {}
 
   getTasks() {
@@ -14,22 +12,16 @@ export class TasksService {
   }
 
   getTask(id: string) {
-    const taskFound = this.prisma.tasks.findUnique({
+    return this.prisma.tasks.findUnique({
       where: {
         id: id,
-      }
+      },
     });
 
     //Manera tradicional de hacer validaciones
     // if(!taskFound) return { message: 'Task not found', status: 404 };
 
     //Manera de hacer validaciones con nestJS
-
-    if (!taskFound) {
-      return new NotFoundException(`Task with id ${id} not found`);
-    }
-
-    return taskFound;
   }
 
   createTask(task: CreateTaskDto) {
